@@ -1,0 +1,11 @@
+<% content_for :header_tags do %>
+
+<%= stylesheet_link_tag "redmine_actions_buttons.css", :plugin => 'redmine_actions_buttons' %>
+<%= javascript_include_tag "redmine_actions_buttons.js", :plugin => 'redmine_actions_buttons' %>
+<% unless current_language.to_s == 'en' %>
+<% if File.exists?(File.join(File.dirname(__FILE__), "../../../assets/javascripts/i18n/#{current_language.to_s}.js")) %>
+<%= javascript_include_tag "i18n/#{current_language.to_s}.js", :plugin => "redmine_actions_buttons" %>
+<% end %>
+<% end %>
+
+<% end %>
