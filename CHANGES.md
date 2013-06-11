@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 0.0.9
+
+- Forked to https://github.com/LethusTI/redmine_actions_buttons
+
 ### 0.0.8
 
 - Compatibility with Redmine 1.3.x. Thanks to @avkvl.
