@@ -15,6 +15,7 @@
         var that = this;
         this.s = $('#issue_status_id');
         this.f = $('#issue-form');
+        this.a  =$("#issue_assigned_to_id :nth-child(2)");
 
 	var areas = $('div#content>div.contextual:has(a.icon)');
 
@@ -91,6 +92,7 @@
         },
         startIssue: function () {
             this.s.val(STATUS_STARTED_ISSUE);
+            this.a.attr("selected", "selected");
             this.f.submit();
         },
         finishIssue: function () {
