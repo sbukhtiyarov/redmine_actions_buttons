@@ -25,14 +25,14 @@
         this.issueStatus = parseInt(this.s.val());
 
         if (this.issueStatus == STATUS_NEW_ISSUE || this.issueStatus == STATUS_FEEDBACK_ISSUE) {
-            this.startButton = $('<a href="#" class="icon">'+_('Start')+'</a>');
+            this.startButton = $('<a href="#" class="icon icon-action-buttons-start">'+_('Start')+'</a>');
             this.startButton.click(function (e) {
                 e.preventDefault();
                 that.startIssue();
             });
 
-        } else if (this.issueStatus == STATUS_STARTED_ISSUE || this.issueStatus == STATUS_REJECTED_ISSUE) {
-            this.finishButton = $('<a href="#" class="icon">'+_('Finish')+'</a>');
+        } else if (this.issueStatus == STATUS_STARTED_ISSUE) {
+            this.finishButton = $('<a href="#" class="icon icon-action-buttons-finish">'+_('Finish')+'</a>');
             this.finishButton.click(function (e) {
                 e.preventDefault();
                 that.finishIssue();
@@ -43,19 +43,6 @@
             this.acceptButton.click(function (e) {
                 e.preventDefault();
                 that.acceptIssue();
-            });
-
-            this.rejectButton = $('<a href="#" class="icon">'+_('Reject')+'</a>');
-            this.rejectButton.click(function (e) {
-                e.preventDefault();
-                that.rejectIssue();
-            });
-
-        } else if (this.issueStatus == STATUS_CLOSED_ISSUE) {
-            this.reOpenButton = $('<a href="#" class="icon">'+_('Re open')+'</a>');
-            this.reOpenButton.click(function (e) {
-                e.preventDefault();
-                that.reOpenIssue();
             });
         }
 
@@ -71,12 +58,6 @@
             if (that.acceptButton)
 	        that.insertButton(area, that.acceptButton);
 
-            if (that.rejectButton)
-	        that.insertButton(area, that.rejectButton);
-
-            if (that.reOpenButton)
-	        that.insertButton(area, that.reOpenButton);
-            
 	});
     }
 
@@ -102,14 +83,6 @@
         },
         acceptIssue: function () {
             this.s.val(STATUS_CLOSED_ISSUE);
-            this.f.submit();
-        },
-        rejectIssue: function () {
-            this.s.val(STATUS_REJECTED_ISSUE);
-            this.f.submit();
-        },
-        reOpenIssue: function () {
-            this.s.val(STATUS_FEEDBACK_ISSUE);
             this.f.submit();
         },
     };
