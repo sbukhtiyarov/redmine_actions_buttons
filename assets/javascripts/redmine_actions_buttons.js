@@ -3,8 +3,8 @@
     STATUS_STARTED_ISSUE = 2,
     STATUS_RESOLVED_ISSUE = 3,
     STATUS_FEEDBACK_ISSUE = 4,
-    STATUS_CLOSED_ISSUE = 5,
-    STATUS_REJECTED_ISSUE = 6;
+    STATUS_CLOSED_ISSUE = 8,
+    STATUS_REJECTED_ISSUE = 9;
 
     $.redimeStatusTranslations = {};
     var _ = function (text) {
@@ -39,7 +39,7 @@
             });
 
         } else if (this.issueStatus == STATUS_RESOLVED_ISSUE) {
-            this.acceptButton = $('<a href="#" class="icon">'+_('Accept')+'</a>');
+            this.acceptButton = $('<a href="#" class="icon icon-action-buttons-verified">'+_('Verified')+'</a>');
             this.acceptButton.click(function (e) {
                 e.preventDefault();
                 that.acceptIssue();
